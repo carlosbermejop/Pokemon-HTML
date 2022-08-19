@@ -289,70 +289,7 @@ const animate = () => {
   }
 };
 
-animate();
-
-const battleBackgroundImage = new Image();
-battleBackgroundImage.src = ".\\assets\\img\\battleBackground.png";
-
-const battleBackground = new Sprite({
-  position: {
-    x: 0,
-    y: 0,
-  },
-  image: battleBackgroundImage,
-});
-
-const allyPosition = { x: 360, y: 430 };
-const enemyPosition = { x: 1010, y: 150 };
-
-const draggleImage = new Image();
-draggleImage.src = ".\\assets\\img\\draggleSprite.png";
-
-const draggle = new Sprite({
-  position: enemyPosition,
-  image: draggleImage,
-  frames: {
-    max: 4,
-    hold: 30,
-  },
-  animate: true,
-  isEnemy: true,
-});
-
-const embyImage = new Image();
-embyImage.src = ".\\assets\\img\\embySprite.png";
-
-const emby = new Sprite({
-  position: allyPosition,
-  image: embyImage,
-  frames: {
-    max: 4,
-    hold: 30,
-  },
-  animate: true,
-});
-
-const animateBattle = () => {
-  window.requestAnimationFrame(animateBattle);
-  battleBackground.draw();
-  draggle.draw();
-  emby.draw();
-};
-
-// animateBattle();
-
-document.querySelectorAll("button").forEach((button) => {
-  button.addEventListener("click", () => {
-    emby.attack({
-      attack: {
-        name: "Tackle",
-        damage: 10,
-        type: "Normal",
-      },
-      recipient: draggle,
-    });
-  });
-});
+// animate();
 
 let lastKey = "";
 
